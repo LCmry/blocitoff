@@ -2,14 +2,14 @@ class TodosController < ApplicationController
 
   def show
   end
-  
+
   def new
   end
 
   def create
     @todo = Todo.new(todo_params)
     @todo.save
-    redirect_to @todo
+    redirect_to @todo, notice: 'Your new TODO was saved'
   end
 
   private
