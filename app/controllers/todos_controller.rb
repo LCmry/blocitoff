@@ -1,16 +1,17 @@
 class TodosController < ApplicationController
 
   def show
-    @todo = Todo.find params[:id]
+    @todo = Todo.find(params[:id])
   end
 
   def new
+    @todo = Todo.new
   end
 
   def create
     @todo = Todo.new(todo_params)
     @todo.save
-    redirect_to @todo, notice: 'Your new TODO was saved'
+    redirect_to @todo, notice: 'Your new To-Do was saved'
   end
 
   private
