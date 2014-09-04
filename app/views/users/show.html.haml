@@ -1,0 +1,13 @@
+%table
+  %tr
+    %th Todos
+    %th Created At
+    %th Completed
+  - @todos.each do |t|
+    %tr
+      %td= t.description
+      %td= t.created_at
+      %td
+        %input{ type: "checkbox" }
+  %tr
+    = render "todos/new"
