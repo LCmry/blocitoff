@@ -8,7 +8,7 @@
   %body
     .nav
       %ul
-        %li= link_to 'Home', root_path
+        %li= link_to 'Home', authenticated_root_path
         %li= link_to 'Sign Up', new_user_registration_path
         %li= link_to 'Sign In', new_user_session_path
     %p= flash[:notice] if flash[:notice]

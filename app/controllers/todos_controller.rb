@@ -1,15 +1,17 @@
 class TodosController < ApplicationController
 
   def new
+    @user = User.find(params[:user_id])
     @todo = Todo.new
   end
 
   def create
-    @todo = current_user.todos.build(todo_params)
+    @user = User.find(params[:user_id])
+    @todo = Todo.new(todo_params)
     if @todo.save
-      redirect_to :back, notice: 'Your new To-Do was saved'
+      redirect_to @user, notice: 'Your new To-Do was saved'
     else
-      redirect_to :back, notice: 'There was an error saving your To-Do'
+      redirect_to @user, notice: 'There was an error saving your To-Do'
     end
   end
 

@@ -9,5 +9,4 @@
       %td= t.created_at
       %td
         %input{ type: "checkbox" }
-  %tr
-    = render "todos/new"
+  %tr= link_to 'New To-do', new_user_todo_path
