@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:show] do
-    resources :todos, only: [:new, :create]
+    resources :todos, only: [:new, :create, :destroy]
   end
 
 end

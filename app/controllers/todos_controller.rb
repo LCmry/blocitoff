@@ -15,6 +15,16 @@ class TodosController < ApplicationController
     end
   end
 
+  def destroy
+    @user = User.find(params[:user_id])
+    @todo = Todo.find(params[:id])
+    if @todo.destroy
+      redirect_to @user, notice: 'Your To-Do was deleted'
+    else
+      redirect_to @user, notice: 'There was an error deleting your To-Do'
+    end
+  end
+
   private
 
   def todo_params

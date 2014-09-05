@@ -7,6 +7,5 @@
     %tr
       %td= t.description
       %td= t.created_at
-      %td
-        %input{ type: "checkbox" }
+      %td= link_to 'Delete', user_todo_path(@user, t), method: :delete
   %tr= link_to 'New To-do', new_user_todo_path(@user, @todo)
