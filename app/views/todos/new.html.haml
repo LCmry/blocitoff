@@ -1,4 +1,3 @@
-%h1 New Todo
-= form_for @todo do |f|
+= form_for [@user, @todo] do |f|
   = f.text_field :description, placeholder: 'Description'
   = f.submit 'Save'
