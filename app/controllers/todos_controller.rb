@@ -11,7 +11,7 @@ class TodosController < ApplicationController
     if @todo.save
       redirect_to @user, notice: 'Your new To-Do was saved'
     else
-      redirect_to @user, notice: 'There was an error saving your To-Do'
+      redirect_to @user, alert: 'There was an error saving your To-Do'
     end
   end
 
@@ -21,7 +21,7 @@ class TodosController < ApplicationController
     if @todo.destroy
       redirect_to @user, notice: 'Your To-Do was deleted'
     else
-      redirect_to @user, notice: 'There was an error deleting your To-Do'
+      redirect_to @user, alert: 'There was an error deleting your To-Do'
     end
   end
 
