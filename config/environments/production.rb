@@ -82,4 +82,6 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # config.action_mailer.default_url_options = { host: 'http://lc-blocitoff.herokuapp.com' }
+
+  config.gem 'javan-whenever', lib: false, source: 'http://gems.github.com'
 end

@@ -24,6 +24,8 @@ gem 'haml-rails'
 
 gem 'devise'
 
+gem 'whenever', :require => false
+
 group :doc do
   gem 'sdoc', '~> 0.4.0'
 end
