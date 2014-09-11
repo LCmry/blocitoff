@@ -1,11 +1,12 @@
-%table
+%br/
+%table.table.table-striped.table-bordered
   %tr
     %th Todos
     %th Time Left
-    %th Completed
+    %th Completed?
   - @todos.each do |t|
     %tr
       %td= t.description
       %td= distance_of_time_in_words(Time.now, t.created_at + 7.days)
       %td= link_to 'Delete', user_todo_path(@user, t), method: :delete
-  %tr= link_to 'New To-do', new_user_todo_path(@user, @todo)
+%p= link_to 'New To-do', new_user_todo_path(@user, @todo)
