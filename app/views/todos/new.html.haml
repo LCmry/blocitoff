@@ -1,3 +1,9 @@
-= form_for [@user, @todo] do |f|
-  = f.text_field :description, placeholder: 'Description'
-  = f.submit 'Save'
+%br/
+.row
+  .col-md-4
+    %h3 New To-Do
+    = form_for [@user, @todo] do |f|
+      .form-group
+        = f.text_field :description, class: 'form-control', placeholder: 'Description'
+        %br/
+        = f.submit 'Save', class: 'btn btn-success'

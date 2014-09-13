@@ -6,13 +6,29 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    .nav
-      %ul
-        %li= link_to 'Home', authenticated_root_path
-        %li= link_to 'Sign Up', new_user_registration_path
-        %li= link_to 'Sign In', new_user_session_path
-        %li= link_to 'Sign Out', destroy_user_session_path, method: :delete
-    %p= flash[:notice] if flash[:notice]
-    %p= flash[:alert] if flash[:alert]
+    .container
+      %ul.nav.nav-pills
+        %li
+          =link_to 'Blocitoff', authenticated_root_path ? current_user : unauthenticated_root_path
+        %li
+          = link_to 'Home', authenticated_root_path ? current_user : unauthenticated_root_path
+        .pull-right.sign-options
+          -if current_user
+            = link_to 'Account', edit_user_registration_path
+            |
+            = link_to 'Sign Out', destroy_user_session_path, method: :delete
+          -else
+            = link_to 'Sign Up', new_user_registration_path
+            or 
+            \#{link_to 'Sign In', new_user_session_path}
+            
+      -if flash[:notice]
+        .alert.alert-success
+          %button.close{"data-dismiss" => "alert", :type => "button"} ×
+          = flash[:notice]
+      -if flash[:alert]
+        .alert.alert-danger
+        %button.close{"data-dismiss" => "alert", :type => "button"} ×
+        = flash[:alert]
 
-    = yield
+      = yield

@@ -22,9 +22,13 @@ gem 'jbuilder', '~> 2.0'
 gem 'haml'
 gem 'haml-rails'
 
+gem 'html2haml'
+
 gem 'devise'
 
 gem 'whenever', :require => false
+
+gem 'bootstrap-sass', '~> 3.2.0'
 
 group :doc do
   gem 'sdoc', '~> 0.4.0'
