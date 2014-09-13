@@ -9,7 +9,7 @@
     .container
       %ul.nav.nav-pills
         %li
-          =link_to 'Blocitoff', authenticated_root_path ? current_user : unauthenticated_root_path
+          =link_to 'Blocitoff', unauthenticated_root_path
         %li
           = link_to 'Home', authenticated_root_path ? current_user : unauthenticated_root_path
         .pull-right.sign-options
