@@ -4,9 +4,6 @@ class UsersController < ApplicationController
   def show
     @user = current_user
     @todo = Todo.new
-    @todos = @user.todos
-    unless @user == User.find(params[:id])
-      redirect_to @user, alert: "That is not your page"
-    end
+    @todos = @user.todos   
   end
 end
