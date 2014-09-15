@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   rescue_from Pundit::NotAuthorizedError do |exception|
-    redirect_to (user_path(current_user) || unauthorized_root_path), alert: "That is not the page you are looking for"
+    redirect_to user_path(current_user), alert: "That is not the page you are looking for"
   end
 
   def after_sign_in_path_for(resource)
