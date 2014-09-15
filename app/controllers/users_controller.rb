@@ -5,8 +5,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @todo = Todo.new
     @todos = @user.todos
-    unless @user == current_user
-      redirect_to user_path(current_user), alert: "That is not the page you are looking for"
-    end
+    authorize_user
   end
 end
