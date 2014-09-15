@@ -5,6 +5,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @todo = Todo.new
     @todos = @user.todos
-    authorize_user
+    authorize @user
   end
 end

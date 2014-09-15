@@ -4,13 +4,13 @@ class TodosController < ApplicationController
   def new
     @user = User.find(params[:user_id])
     @todo = Todo.new
-    authorize_user
+    authorize @todo
   end
 
   def create
     @user = User.find(params[:user_id])
     @todo = current_user.todos.build(todo_params)
-    authorize_user
+    authorize @todo
     if @todo.save
       redirect_to @user, notice: 'Your new To-Do was saved'
     else
@@ -21,7 +21,7 @@ class TodosController < ApplicationController
   def destroy
     @user = User.find(params[:user_id])
     @todo = Todo.find(params[:id])
-    authorize_user
+    authorize @todo
     if @todo.destroy
       redirect_to @user, notice: 'Your To-Do was deleted'
     else
