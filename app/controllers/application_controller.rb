@@ -9,6 +9,12 @@ class ApplicationController < ActionController::Base
     redirect_to user_path(current_user), alert: "That is not the page you are looking for"
   end
 
+  rescue_from ActiveRecord::RecordNotFound, with: :render_404
+  # Render 404 page when record not found
+  def render_404      
+     render file: "public/404.html", status: 404
+  end
+
   def after_sign_in_path_for(resource)
     user_path(current_user)
   end

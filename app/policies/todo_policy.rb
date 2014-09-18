@@ -15,6 +15,6 @@ class TodoPolicy < ApplicationPolicy
   end
 
   def destroy?
-    new?
+    create?
   end
 end
